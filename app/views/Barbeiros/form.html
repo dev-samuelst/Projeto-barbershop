@@ -1,0 +1,80 @@
+#{extends 'main.html' /}
+
+#{if barber}
+	#{set title:'Edição de Barbeiro' /}
+#{/if}
+#{else}
+	#{set title:'Cadastro de Barbeiro' /}
+	
+#{/else}
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-3 bg-info-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Barbershop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="@{Users.list}">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="@{Barbeiros.list}">Barbeiros</a>
+        </li>
+        
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Opções
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="@{Users.form}">Cadastro de usuário</a></li>
+            <li><a class="dropdown-item" href="@{Barbeiros.form}">Cadastro de barbeiro</a></li>
+          </ul>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<form action="@{Barbeiros.add}" method="POST"  class="bg-secondary-subtle p-3">
+
+<h1>#{get 'title' /}</h1>
+
+	<input type="hidden" name="barber.id" value="${barber?.id}" />
+	
+	<div class="mb-3">
+		<label class="form-label">Nome:</label>
+		<input class="form-control" type="text" name="barber.nome" value="${barber?.nome}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Cpf:</label>
+		<input class="form-control" type="text" name="barber.cpf" value="${barber?.cpf}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Email:</label>
+		<input class="form-control" type="email" name="barber.email" value="${barber?.email}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Telefone:</label>
+		<input class="form-control" type="text" name="barber.telefone" value="${barber?.telefone}" />
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Senha:</label>
+		<input class="form-control" type="password" name="barber.password" value="${barber?.password}" />
+	</div>
+	
+	#{if barber}
+		<input class="btn btn-primary" type="submit" value="Atualizar" />
+	#{/if}
+	#{else}
+		<input class="btn btn-primary" type="submit" value="Cadastrar" />
+	#{/else}
+</form>
