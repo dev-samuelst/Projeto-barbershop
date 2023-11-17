@@ -1,6 +1,5 @@
-/classes/
 .classpath
 .project
 eclipse/
-settings/
-documentation/*
+.settings/
+documentation/
