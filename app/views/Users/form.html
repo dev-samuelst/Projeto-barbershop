@@ -44,12 +44,14 @@
 	
 	<div class="mb-3">
 		<label class="form-label">Nome:</label>
-		<input class="form-control" type="text" name="user.name" value="${user?.name}" />
+		<input class="form-control" type="text" name="user.name" value="${flash['user.name']}" />
+		<span class="text-danger">#{error 'user.name' /}</span>
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Email:</label>
-		<input class="form-control" type="email" name="user.email" value="${user?.email}" />
+		<input class="form-control" type="email" name="user.email" value="${flash['user.email']}" />
+		<span class="text-danger">#{error 'user.email' /}</span>
 	</div>
 
 <div class="mb-3">
@@ -64,7 +66,8 @@
 	
 	<div class="mb-3">
 		<label class="form-label">Senha:</label>
-		<input class="form-control" type="password" name="user.password" value="${user?.password}" />
+		<input class="form-control" type="password" name="user.password" value="${flash['user.password']}" />
+		<span class="text-danger">#{error 'user.password' /}</span>
 	</div>
 	
 	<label class="form-label">Escolha seu barbeiro:</label>

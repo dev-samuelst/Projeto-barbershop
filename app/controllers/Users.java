@@ -5,13 +5,17 @@ import java.util.List;
 import anotacions.Administrador;
 import models.Barbeiro;
 import models.User;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
 @With(Secure.class)
 public class Users extends Controller{
 	
-	public static void add(User user) {
+	public static void add(@Valid User user) {
+		if(validation.hasErrors()) {
+			redirecionarErros();
+		}
 		user.save();
 		list(null);
 	}
@@ -49,6 +53,12 @@ public class Users extends Controller{
 	}
 	public static void login() {
 		render();
+	}
+	
+	private static void redirecionarErros() {
+		params.flash();
+		validation.keep();
+		form();
 	}
 
 }
