@@ -3,13 +3,17 @@ package controllers;
 import java.util.List;
 
 import models.Barbeiro;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
 @With(Secure.class)
 public class Barbeiros extends Controller {
 	
-	public static void add(Barbeiro barber) {
+	public static void add(@Valid Barbeiro barber) {
+		if(validation.hasErrors()) {
+			redirecionarErros();
+		}
 		barber.save();
 		list(null);
 	}
@@ -40,6 +44,12 @@ public class Barbeiros extends Controller {
 	public static void form() {
 		render();
 		
+	}
+	
+	private static void redirecionarErros() {
+		params.flash();
+		validation.keep();
+		form();
 	}
 
 }

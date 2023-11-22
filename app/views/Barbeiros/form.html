@@ -48,27 +48,31 @@
 	
 	<div class="mb-3">
 		<label class="form-label">Nome:</label>
-		<input class="form-control" type="text" name="barber.nome" value="${barber?.nome}" />
+		<input class="form-control" type="text" name="barber.nome" value="${flash['barber.nome']}" />
+		<span class="text-danger">#{error 'barber.nome' /}</span>
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Cpf:</label>
-		<input class="form-control" type="text" name="barber.cpf" value="${barber?.cpf}" />
+		<input class="form-control" type="text" name="barber.cpf" value="${flash['barber.cpf']}"/>
+		<span class="text-danger">#{error 'barber.cpf' /}</span>
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Email:</label>
-		<input class="form-control" type="email" name="barber.email" value="${barber?.email}" />
+		<input class="form-control" type="email" name="barber.email" value="${flash['barber.email']}"/>
+		<span class="text-danger">#{error 'barber.email' /}</span>
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Telefone:</label>
-		<input class="form-control" type="text" name="barber.telefone" value="${barber?.telefone}" />
+		<input class="form-control" type="text" name="barber.telefone" value="${flash['barber.telefone']}" />
 	</div>
 	
 	<div class="mb-3">
 		<label class="form-label">Senha:</label>
-		<input class="form-control" type="password" name="barber.password" value="${barber?.password}" />
+		<input class="form-control" type="password" name="barber.password" value="${flash['barber.password']}" />
+		<span class="text-danger">#{error 'barber.password' /}</span>
 	</div>
 	
 	#{if barber}
