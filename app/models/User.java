@@ -18,7 +18,6 @@ public class User extends Model{
 	@Required
 	@MinSize(6)
 	public String password;
-	public String perfil;
 	
 	
 	@ManyToOne

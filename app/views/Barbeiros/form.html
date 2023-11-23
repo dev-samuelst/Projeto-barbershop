@@ -75,6 +75,16 @@
 		<span class="text-danger">#{error 'barber.password' /}</span>
 	</div>
 	
+	<div class="mb-3">
+
+		<label class="form-label">Perfil:</label>	
+		<select name="barber.perfil" class="form-select form-select-lg mb-3" aria-label="Large select example">
+  			<option value="adm">adm</option>
+  			<option value="cliente">cliente</option>
+		</select>
+
+		</div>
+	
 	#{if barber}
 		<input class="btn btn-primary" type="submit" value="Atualizar" />
 	#{/if}
