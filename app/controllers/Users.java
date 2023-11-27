@@ -11,7 +11,7 @@ import play.mvc.With;
 
 @With(Secure.class)
 public class Users extends Controller{
-	
+
 	public static void add(@Valid User user) {
 		if(validation.hasErrors()) {
 			redirecionarErros();

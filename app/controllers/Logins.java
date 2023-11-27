@@ -3,14 +3,14 @@ package controllers;
 import models.User;
 import play.mvc.Controller;
 
-public class Logins extends Controller{
-	
+public class Logins extends Controller {
+
 	public static void login() {
 		render();
 	}
-	
-public static void logar(String email, String password) {
-		
+
+	public static void logar(String email, String password) {
+
 		User pessoaBanco = User.find("email = ?1 and password = ?2", email, password).first();
 		if (pessoaBanco != null) {
 			session.put("usuarioLogado", pessoaBanco.name);
@@ -19,10 +19,12 @@ public static void logar(String email, String password) {
 			Users.list(null);
 		}
 		
+		
+
 		flash.error("Credenciais inválidas");
 		login();
 	}
-	
+
 	public static void logout() {
 		session.clear();
 		flash.success("Você saiu do sistema");
@@ -30,6 +32,3 @@ public static void logar(String email, String password) {
 	}
 
 }
-
-
-
