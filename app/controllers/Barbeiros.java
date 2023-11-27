@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import anotacions.Administrador;
 import models.Barbeiro;
 import play.data.validation.Valid;
 import play.mvc.Controller;
@@ -18,6 +19,7 @@ public class Barbeiros extends Controller {
 		list(null);
 	}
 	
+	@Administrador
 	public static void del(Long id) {
 		Barbeiro barber = Barbeiro.findById(id);
 		barber.delete();
