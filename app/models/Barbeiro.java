@@ -20,11 +20,6 @@ public class Barbeiro extends Model {
 	@Required
 	@MinSize(6)
 	public String password;
-<<<<<<< HEAD
-	
-	
-=======
 	public String perfil;
->>>>>>> branch 'main' of https://github.com/dev-samuelst/Projeto-barbershop.git
 
 }
