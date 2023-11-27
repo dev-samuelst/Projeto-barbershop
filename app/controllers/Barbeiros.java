@@ -22,6 +22,9 @@ public class Barbeiros extends Controller {
 	@Administrador
 	public static void del(Long id) {
 		Barbeiro barber = Barbeiro.findById(id);
+		if(barber.perfil.equalsIgnoreCase("adm")) {
+			Logins.logout();
+		}
 		barber.delete();
 		list(null);
 	}
