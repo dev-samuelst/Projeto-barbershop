@@ -13,4 +13,6 @@ public class Corte extends Model {
 	public String sobrancelha;
 	public String freestyle;
 	public String horario;
+	public String dia;
+	
 }
