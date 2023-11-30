@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Barbeiro;
+import models.Corte;
 import models.User;
 import play.mvc.Controller;
 
@@ -17,12 +18,16 @@ public class Logins extends Controller {
 		if (pessoaBanco != null) {
 			session.put("usuarioLogado", pessoaBanco.name);
 			flash.success("Login realizado com sucesso!");
-			Users.list(null);
+			if(pessoaBanco.perfil.equalsIgnoreCase("ADM")) {
+				Barbeiros.list(null);
+			}else {
+				Cortes.corte();
+			}
 		}else if(barbeiro != null) {
 			session.put("usuarioLogado", barbeiro.nome);
 			session.put("perfilUser", barbeiro.perfil);
 			flash.success("Login realizado com sucesso!");
-			Barbeiros.list(null);
+			Users.list(null);
 		}
 		
 		

@@ -5,11 +5,12 @@ import java.util.List;
 import anotacions.Administrador;
 import models.Barbeiro;
 import models.User;
+import net.bytebuddy.asm.Advice.This;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
 
-@With(Secure.class)
+
 public class Users extends Controller{
 
 	public static void add(@Valid User user) {
@@ -17,7 +18,7 @@ public class Users extends Controller{
 			redirecionarErros();
 		}
 		user.save();
-		list(null);
+		form();
 	}
 	
 	@Administrador

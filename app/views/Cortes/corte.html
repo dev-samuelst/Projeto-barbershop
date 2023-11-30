@@ -1,0 +1,95 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Usuario' /}
+<form action="@{Cortes.add}" method="POST">
+    <center> <h1 class="cor">Cortes e coisas adicionais</h1> </center>
+
+    <div class="mb-3">
+		<label class="cor">Corte:</label> 
+		<select name="corte.corte"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="Degrade">Degradê</option>
+			<option value="Social">Social</option>
+			<option value="Mid Fade">Mid Fade</option>
+			<option value="Low Fade">Low Fade</option>
+			<option value="Classic Fade">Classic Fade</option>
+			<option value="Scissor Fade">Scissor Fade</option>
+			<option value="Taper Fade">Taper Fade</option>
+			<option value="Corte do Jaca">Corte Do Jaca</option>
+			<option value="Corte Americano">Corte Americano</option>
+			<option value="Moicani">Moicano</option>
+		</select>
+	</div>
+	<h5 class="cor">se tiver alguma dúvida sobre os cortes <a href="@{cortes.amostracorte}">click aqui</a></h5>
+
+    <div class="mb-3">
+		<label class="cor">Barba:</label> 
+		<select name="corte.barba"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="Sim">Sim</option>
+			<option value="Não">Não</option>
+		</select>
+	</div>
+	
+    <div class="mb-3">
+		<label class="cor">Sobrancelha:</label> 
+		<select name="corte.sobrancelha"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="Sim">Sim</option>
+			<option value="Não">Não</option>
+		</select>
+	</div>
+
+    <div class="mb-3">
+		<label class="cor">Freestyle:</label> 
+		<select name="corte.freestyle"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="Sim">Sim</option>
+			<option value="Não">Não</option>
+		</select>
+	</div>
+
+    <div class="mb-3">
+		<label class="cor">Horario:</label> 
+		<select name="corte.horario"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="8:00">8:00</option>
+			<option value="9:00">9:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+		</select>
+	</div>
+	<div class="mb-3">
+		<label class="cor">Horario:</label> 
+		<select name="corte.horario"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="8:00">8:00</option>
+			<option value="9:00">9:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+		</select>
+	</div>
+
+    <input class="btn btn-primary" type="submit" value="Cadastrar" /> 
+</form>

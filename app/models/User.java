@@ -19,6 +19,8 @@ public class User extends Model{
 	@MinSize(6)
 	public String password;
 	
+	@Required
+	public String perfil;
 	
 	@ManyToOne
 	@JoinColumn(name="idBarbeiro")

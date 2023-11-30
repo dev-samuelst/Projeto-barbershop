@@ -17,7 +17,7 @@ public class Inicializador extends Job {
 			joao.name = "Joao Silva";
 			joao.email = "joaojj@gmail.com";
 			joao.password = "12345";
-			
+			joao.perfil = "ADM";
 			joao.save();
 			
 			
