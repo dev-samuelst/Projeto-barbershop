@@ -58,6 +58,7 @@
     </tr>
   </thead>
   <tbody>
+	   #{list barbers, as:'b'}
 	    <tr>
 	      <th>${b.id}</th>
 	      <td>${b.nome}</td>
@@ -71,6 +72,7 @@
 	      	
 	      </td>
 	    </tr>
+	    #{/list}
   </tbody>
 </table>
 

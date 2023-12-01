@@ -21,7 +21,7 @@ public class Cortes extends Controller{
 				"13:00", "14:00", "15:00", "16:00", "17:00",
 				"19:00", "20:00", "21:00",};
 		for (int i = 0; i < hora.length; i++) {
-			if(corte.horario.equals(hora[i])) {
+			if(!corte.horario.equals(hora[i])) {
 				flash.error("Horario já Cadastrado, por favor escolha outro");
 			}
 		}
