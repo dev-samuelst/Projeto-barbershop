@@ -1,7 +1,6 @@
 package controllers;
 
 import models.Barbeiro;
-import models.Corte;
 import models.User;
 import play.mvc.Controller;
 
@@ -31,12 +30,10 @@ public class Logins extends Controller {
 			}
 		}
 		
-		
-
 		flash.error("Credenciais inválidas");
 		login();
 	}
-
+	
 	public static void logout() {
 		session.clear();
 		flash.success("Você saiu do sistema");
@@ -44,3 +41,6 @@ public class Logins extends Controller {
 	}
 
 }
+
+
+
