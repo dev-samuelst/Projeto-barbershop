@@ -16,6 +16,7 @@ public static void logar(String email, String password) {
 		Barbeiro barbeiro = Barbeiro.find("email = ?1 and password = ?2", email, password).first();
 		if (pessoaBanco != null) {
 			session.put("usuarioLogado", pessoaBanco.name);
+			session.put("usuarioId", pessoaBanco.id);
 			flash.success("Login realizado com sucesso!");
 			Cortes.corte();
 		}else if(barbeiro != null) {

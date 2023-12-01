@@ -22,20 +22,28 @@ public class Cortes extends Controller{
 				"19:00", "20:00", "21:00",};*/
 		List<Corte> cortes = Corte.findAll();
 		
-		for (int i = 0; i < cortes.size(); i++) {
-			if(corte.horario.equals(cortes.get(i).horario)) {
+		for (Corte corte2 : cortes) {
+			if(corte.horario.equals(corte2.horario)) {
 				flash.error("Horario já Cadastrado, por favor escolha outro");
+				renderTemplate("Cortes/corte.html", corte);
 			}
 		}
 		
 		corte.save();
 		flash.success("Agendado com sucesso");
-		corte();
+		detalhar(corte.id);
+		
 	}
 
 	public static void del(Long id) {
 		Corte corte = Corte.findById(id);
 		corte.delete();
-		Users.list(null);
+		corte();
+	}
+	
+	
+	public static void detalhar(Long id) {
+		Corte c = Corte.findById(id);
+		render(c);
 	}
 }

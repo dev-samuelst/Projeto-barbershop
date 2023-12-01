@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Detalhamento de corte' /}
+
+<div class="card mt-3">
+  <div class="card-header">
+    #{get 'title' /}: ${c.id}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${c.corte}</h5>
+    <p class="card-text">Barba: ${c.barba}</p>
+    <p class="card-text">Sobrancelha: ${c.sobrancelha}</p>
+    <p class="card-text">Freestyle: ${c.freestyle}</p>
+    <p class="card-text">Horario: ${c.horario}</p>
+    
+    
+    
+    <p class="card-text">Cliente: </p>
+   
+    <a href="/Cortes/corte" class="btn btn-primary">Agende um novo corte</a>
+  	<a href="@{Cortes.del(c.id)}" class="btn btn-danger">Cancelar</a>
+  </div>
+</div>

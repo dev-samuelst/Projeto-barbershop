@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Listagem de Usuario' /}
+#{set title:'Agende seu corte' /}
 <form action="@{Cortes.add}" method="POST">
     <center> <h1 class="cor">Cortes e coisas adicionais</h1> </center>
 
@@ -71,5 +71,11 @@
             <option value="21:00">21:00</option>
 		</select>
 	</div> <br/>
+	
+	#{if session['usuarioId']}
+	
+	<input type="hidden" name="corte.user.id" value="${session['usuarioLogado']}">			
+		  	#{/if}
+	
     <input class="btn btn-primary" type="submit" value="Cadastrar" /> 
 </form>

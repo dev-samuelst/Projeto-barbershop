@@ -12,21 +12,16 @@ import play.db.jpa.Model;
 
 @Entity
 public class Corte extends Model {
-    @Required
+   
 	public String corte;
-    @Required
 	public String barba;
-    @Required
 	public String sobrancelha;
-    @Required
 	public String freestyle;
-    @Required
 	public String horario;
-    @Required
 	public String dia;
 	
-	@OneToMany
-	@JoinColumn(name="idCorte")
-	public List<User> user;
+    @ManyToOne
+	@JoinColumn(name="idUser")
+	public User user;
 	
 }
