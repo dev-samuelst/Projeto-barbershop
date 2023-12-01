@@ -18,16 +18,16 @@ public class Logins extends Controller {
 		if (pessoaBanco != null) {
 			session.put("usuarioLogado", pessoaBanco.name);
 			flash.success("Login realizado com sucesso!");
-			
+			Cortes.corte();
 		}else if(barbeiro != null) {
 			session.put("usuarioLogado", barbeiro.nome);
 			session.put("perfilUser", barbeiro.perfil);
 			flash.success("Login realizado com sucesso!");
-			Users.list(null);
 			if(barbeiro.perfil.equalsIgnoreCase("ADM")) {
-				Barbeiros.list(null);
-			}else {
-				Cortes.corte();
+				Barbeiros.form();
+			}else{
+				
+				Users.list(null);
 			}
 		}
 		

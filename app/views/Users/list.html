@@ -37,7 +37,8 @@
   </thead>
   <tbody>
   	#{list items:users, as:'u'}
-	    <tr>
+  	
+		<tr>
 	      <th>${u.id}</th>
 	      <td>${u.name}</td>
 	      <td>${u.email}</td>
@@ -45,7 +46,7 @@
 	      	<a href="@{Users.edit(u.id)}">Editar</a>
 	      	<a href="@{Users.del(u.id)}">Remover</a>
 	      </td>
-	    </tr>
+	    </tr>    
 	#{/list}
   </tbody>
 </table>
