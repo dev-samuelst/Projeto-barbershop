@@ -17,11 +17,13 @@ public class Cortes extends Controller{
 	
 	public static void add(Corte corte) {
 		
-		String[] hora = {"8:00", "9:00", "10:00", "11:00", 
+		/*String[] hora = {"8:00", "9:00", "10:00", "11:00", 
 				"13:00", "14:00", "15:00", "16:00", "17:00",
-				"19:00", "20:00", "21:00",};
-		for (int i = 0; i < hora.length; i++) {
-			if(!corte.horario.equals(hora[i])) {
+				"19:00", "20:00", "21:00",};*/
+		List<Corte> cortes = Corte.findAll();
+		
+		for (int i = 0; i < cortes.size(); i++) {
+			if(corte.horario.equals(cortes.get(i).horario)) {
 				flash.error("Horario já Cadastrado, por favor escolha outro");
 			}
 		}
