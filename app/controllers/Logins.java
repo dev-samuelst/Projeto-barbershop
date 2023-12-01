@@ -4,8 +4,8 @@ import models.Barbeiro;
 import models.User;
 import play.mvc.Controller;
 
-public class Logins extends Controller {
-
+public class Logins extends Controller{
+	
 	public static void login() {
 		render();
 	}
@@ -39,8 +39,10 @@ public class Logins extends Controller {
 		flash.success("Você saiu do sistema");
 		login();
 	}
-
 }
+
+
+
 
 
 
