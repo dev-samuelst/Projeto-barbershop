@@ -9,9 +9,9 @@ public class Logins extends Controller{
 	public static void login() {
 		render();
 	}
-
-	public static void logar(String email, String password) {
-
+	
+public static void logar(String email, String password) {
+		
 		User pessoaBanco = User.find("email = ?1 and password = ?2", email, password).first();
 		Barbeiro barbeiro = Barbeiro.find("email = ?1 and password = ?2", email, password).first();
 		if (pessoaBanco != null) {
@@ -40,9 +40,3 @@ public class Logins extends Controller{
 		login();
 	}
 }
-
-
-
-
-
-
