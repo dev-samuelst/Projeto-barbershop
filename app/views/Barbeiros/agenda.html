@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Minha agenda de cortes' /}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Barbershop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="@{Barbeiros.list}">Barbeiros</a>
+        </li>
+        <li class="nav-item">
+			<a class="nav-link" href="@{Barbeiros.form}">Cadastrar Barbeiro</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="@{Barbeiros.agenda}">Agenda de cortes</a>
+		</li>
+         
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+#{list cortes, as: 'c'}
+<div class="card mt-3">
+  <div class="card-header">
+    Corte #${c.id}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${c.corte}</h5>
+    <p class="card-text">Barba: ${c.barba}</p>
+    <p class="card-text">Sobrancelha: ${c.sobrancelha}</p>
+    <p class="card-text">Freestyle: ${c.freestyle}</p>
+    <p class="card-text">Horario: ${c.horario}</p>
+    <p class="card-text">Cliente: ${c.user.name} </p>
+   
+    <a href="/Cortes/corte" class="btn btn-primary">Agende um novo corte</a>
+  	<a href="@{Barbeiros.delCorte(c.id)}" class="btn btn-danger">Cancelar</a>
+	<a href="@{Cortes.detalhar(c.id)}" class="btn btn-secondary">Detalhar</a>
+	 </div>
+</div>		
+
+  	#{/list}

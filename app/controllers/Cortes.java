@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 
+import models.Barbeiro;
 import models.Corte;
 import models.User;
 import play.mvc.Controller;
@@ -45,5 +46,11 @@ public class Cortes extends Controller{
 	public static void detalhar(Long id) {
 		Corte c = Corte.findById(id);
 		render(c);
+	}
+	
+	public static void list(Long id) {
+		List<Corte> cortes = Corte.find("(corte.user.id) like ?1",id).fetch();
+		
+		render(cortes);
 	}
 }

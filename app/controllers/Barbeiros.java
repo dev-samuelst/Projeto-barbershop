@@ -4,6 +4,7 @@ import java.util.List;
 
 import anotacions.Administrador;
 import models.Barbeiro;
+import models.Corte;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -55,6 +56,17 @@ public class Barbeiros extends Controller {
 		params.flash();
 		validation.keep();
 		form();
+	}
+	
+	public static void agenda() {
+		List<Corte> cortes = Corte.findAll();
+		render(cortes);
+	}
+	
+	public static void delCorte(Long id) {
+		Corte corte = Corte.findById(id);
+		corte.delete();
+		agenda();
 	}
 
 }

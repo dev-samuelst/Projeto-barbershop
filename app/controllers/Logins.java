@@ -23,12 +23,7 @@ public static void logar(String email, String password) {
 			session.put("usuarioLogado", barbeiro.nome);
 			session.put("perfilUser", barbeiro.perfil);
 			flash.success("Login realizado com sucesso!");
-			if(barbeiro.perfil.equalsIgnoreCase("ADM")) {
-				Barbeiros.form();
-			}else{
-				
-				Users.list(null);
-			}
+			Barbeiros.form();
 		}
 		
 		flash.error("Credenciais inválidas");

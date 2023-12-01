@@ -74,8 +74,9 @@
 	
 	#{if session['usuarioId']}
 	
-	<input type="hidden" name="corte.user.id" value="${session['usuarioLogado']}">			
-		  	#{/if}
+		<input type="hidden" name="corte.user.id" value="${session['usuarioId']}">	
+			
+	#{/if}
 	
     <input class="btn btn-primary" type="submit" value="Cadastrar" /> 
 </form>
