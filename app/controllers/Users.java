@@ -18,6 +18,7 @@ public class Users extends Controller{
 			redirecionarErros();
 		}
 		user.save();
+		flash.success("Cagastro feito com sucesso");
 		form();
 	}
 	

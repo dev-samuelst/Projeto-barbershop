@@ -18,13 +18,10 @@ public class Cortes extends Controller{
 	
 	public static void add(Corte corte) {
 		
-		/*String[] hora = {"8:00", "9:00", "10:00", "11:00", 
-				"13:00", "14:00", "15:00", "16:00", "17:00",
-				"19:00", "20:00", "21:00",};*/
-		List<Corte> cortes = Corte.findAll();
 		
+		List<Corte> cortes = Corte.findAll();
 		for (Corte corte2 : cortes) {
-			if(corte.horario.equals(corte2.horario)) {
+			if(corte.horario.equals(corte2.horario) && corte.user.barbeiro.id.equals(corte2.user.barbeiro.id)) {
 				flash.error("Horario já Cadastrado, por favor escolha outro");
 				renderTemplate("Cortes/corte.html", corte);
 			}
@@ -32,7 +29,7 @@ public class Cortes extends Controller{
 		
 		corte.save();
 		flash.success("Agendado com sucesso");
-		detalhar(corte.id);
+		list(corte.user.id);
 		
 	}
 

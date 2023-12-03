@@ -1,7 +1,18 @@
 #{extends 'main.html' /} 
-#{set title:'Home' /}
+#{set title:'Cortes' /}
 
-<button class="btn btn-primary">  <a class="cor" href="@{cortes.corte}" >voltar</a></button>
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-3 ">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="@{cortes.corte}">Voltar</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+	</div>
+</nav>
 <center> <h1 class="cor">Fotos dos cortes diponiveis</h1> </center>
 <br/>
 <br/>

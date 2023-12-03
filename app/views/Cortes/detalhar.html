@@ -1,6 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Detalhamento de corte' /}
 
+<nav class="navbar navbar-expand-lg bg-body-tertiary mt-3 ">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="@{cortes.list(session['usuarioId'])}">Voltar</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+</nav>
 <div class="card mt-3">
   <div class="card-header">
     #{get 'title' /}: ${c.id}

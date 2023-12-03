@@ -24,10 +24,8 @@
 			<a class="nav-link" href="@{Barbeiros.form}">Cadastrar Barbeiro</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="@{Barbeiros.agenda}">Agenda de cortes</a>
+			<a class="nav-link" href="@{Barbeiros.agenda(session['barbeiroId'])}">Agenda de cortes</a>
 		</li>
-         
-        
       </ul>
     </div>
   </div>
@@ -39,7 +37,7 @@
 
 <form action="@{Barbeiros.add}" method="POST"  >
 
-<h1 class="cor">#{get 'title' /}</h1>
+<center><h1 class="cor">#{get 'title' /}</h1></center> 
 
 	<input type="hidden" name="barber.id" value="${barber?.id}" />
 	
@@ -71,7 +69,7 @@
 		<input class="form-control" type="password" name="barber.password" value="${flash['barber.password']}" />
 		<span class="text-danger">#{error 'barber.password' /}</span>
 	</div>
-	
+	<input type="hidden" name="barber.perfil" value="barbeiro">
 	#{if barber}
 		<input class="btn btn-primary" type="submit" value="Atualizar" />
 	#{/if}

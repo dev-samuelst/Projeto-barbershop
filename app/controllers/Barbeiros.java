@@ -58,15 +58,15 @@ public class Barbeiros extends Controller {
 		form();
 	}
 	
-	public static void agenda() {
-		List<Corte> cortes = Corte.findAll();
+	public static void agenda(Long id) {
+		List<Corte> cortes = Corte.find("(corte.user.barbeiro.id) like ?1",id).fetch();
 		render(cortes);
 	}
 	
 	public static void delCorte(Long id) {
 		Corte corte = Corte.findById(id);
 		corte.delete();
-		agenda();
+		agenda(corte.user.barbeiro.id);
 	}
 
 }
