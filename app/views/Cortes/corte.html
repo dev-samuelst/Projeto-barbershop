@@ -17,13 +17,26 @@
 		<li class="nav-item">
 		
 			<a class="nav-link" href="@{Users.edit(session['usuarioId'])}">Editar Perfil</a>
-		</li>
-         
+		</li> 
         
       </ul>
+      
     </div>
-	</div>
 	
+	</div>
+	<div class="log">
+			#{if session['usuarioLogado']}
+		    	
+		    	<br>
+		    		<span class="mt-3 bg-success-subtle border border-info-subtle rounded-pill p-3 ">
+		    		${session['usuarioLogado']}
+		    		<a href="@{Logins.logout}" class="ms-2 btn btn-outline-success rounded-pill">Logout</a>
+		    		</span>
+		    		
+		    	
+		    	
+		  	#{/if}
+		  	</div>
 </nav>
 <form action="@{Cortes.add}" method="POST">
     <center> <h1 class="cor">Cortes e coisas adicionais</h1> </center>
@@ -95,8 +108,18 @@
             <option value="20:00">20:00</option>
             <option value="21:00">21:00</option>
 		</select>
-	</div> <br/>
+	</div> 
 	
+	<div class="mb-3">
+		<label class="cor">Dia do mêS:</label> 
+		<select name="corte.freestyle"
+			class="form-select form-select-lg mb-3"
+			aria-label="Large select example">
+			<option value="Sim">1</option>
+			<option value="Não">Não</option>
+		</select>
+	</div>
+	<br/>
 	#{if session['usuarioId']}
 	
 		<input type="hidden" name="corte.user.id" value="${session['usuarioId']}">	
