@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ public class Corte extends Model {
 	public String barba;
 	public String sobrancelha;
 	public String freestyle;
+	public Date data;
 	public String horario;
 	public String dia;
 	

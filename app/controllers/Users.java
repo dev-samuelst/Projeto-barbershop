@@ -43,6 +43,10 @@ public class Users extends Controller{
 	
 	public static void edit(Long id) {
 		User user = User.findById(id);
+		flash.put("user.id", user.id);
+		flash.put("user.name", user.name);
+		flash.put("user.email", user.email);
+		flash.put("user.password", user.password);
 		List<Barbeiro> barbeiros = Barbeiro.findAll();
 		renderTemplate("Users/form.html", user, barbeiros);
 		
