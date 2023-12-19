@@ -20,7 +20,6 @@ public class Corte extends Model {
 	public String freestyle;
 	public Date data;
 	public String horario;
-	public String dia;
 	
     @ManyToOne
 	@JoinColumn(name="idUser")
