@@ -77,21 +77,34 @@
     </tr>
   </thead>
   <tbody>
-	   #{list barbers, as:'b'}
-	    <tr>
-	      <th>${b.id}</th>
-	      <td>${b.nome}</td>
-	      <td>${b.cpf}</td>
-	      <td>${b.email}</td>
-	      <td>${b.telefone}</td>
-	      <td>
-	      
-	      	<a href="@{Barbeiros.edit(b.id)}">Editar</a>
-	      	<a href="@{Barbeiros.del(b.id)}">Remover</a>
-	      	
-	      </td>
-	    </tr>
-	    #{/list}
+	  
   </tbody>
 </table>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("form").submit(function(e) {
+	 e.preventDefault();
+	 $.ajax({
+		 type: "GET", //INFORME O TIPO DA REQUISICAO
+		 url: "@{Barbeiros.listAjax}", //INFORME A URL DE DESTINO
+		 data: $(this).serialize(), //ENVIA DADOS DO FORMULARIO
+		 success: function(data) {
+			 $("tbody").empty();
+			 $.each(data, function(i, b) {
+				 $("tbody").append("<tr><td>" + b.id + "</td>" + "<td>" + b.nome + "</td>"
+						 + "<td>" + b.cpf + "</td>" +  "<td>" + b.email +  "</td><td>" + b.telefone + "</td>" +
+						 "<td>" +
+						" <a href=/barbeiros/form?id="+ b.id +" class='btn btn-secondary'>Editar</a>" +
+						"<a href=/barbeiros/del?id="+ b.id + " class='btn btn-danger'>Remover</a>" +
+						 "</td></tr>");
+			 });
+		 }
+	 });
+	});
+});
+</script>
+
+
 

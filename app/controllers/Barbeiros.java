@@ -1,10 +1,12 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import anotacions.Administrador;
 import models.Barbeiro;
 import models.Corte;
+import models.User;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -17,7 +19,7 @@ public class Barbeiros extends Controller {
 			redirecionarErros();
 		}
 		barber.save();
-		list(null);
+		list();
 	}
 	
 	@Administrador
@@ -27,18 +29,21 @@ public class Barbeiros extends Controller {
 			Logins.logout();
 		}
 		barber.delete();
-		list(null);
+		list();
 	}
 	
-	public static void list(String termo) {
-		List<Barbeiro> barbers = null;
-		if(termo == null || termo.isEmpty()) {
+	public static void list() {
+		render();
+	}
+	
+	public static void listAjax(String termo) {
+		List<Barbeiro> barbers = Collections.emptyList();
+		if (termo == null || termo.trim().isEmpty()) {
 			barbers = Barbeiro.findAll();
-		}else {
-			barbers = Barbeiro.find("lower(nome) like ?1 or lower(email) like ?1",
-					"%"+ termo.toLowerCase() +"%").fetch();
+		} else {
+			barbers = Barbeiro.find("nome like ?1 or email like ?1", "%"+termo+"%").fetch();
 		}
-		render(barbers);
+		renderJSON(barbers);
 	}
 	
 	public static void edit(Long id) {
