@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import anotacions.Administrador;
@@ -26,20 +27,22 @@ public class Users extends Controller{
 	public static void del(Long id) {
 		User user = User.findById(id);
 		user.delete();
-		list(null);
+		list();
 	}
 	
-	public static void list(String termo) {
-		List<User> users = null;
-		if(termo == null || termo.isEmpty()) {
-			users = User.findAll();	
-		}else{
-			users = User.find("lower(name) like ?1 or lower(email) like ?1",
-					"%"+ termo.toLowerCase() +"%").fetch();
-		}
-		
-		render(users);
+	public static void list() {
+		render();
 	}
+	
+	public static void listAjax(String termo) {
+			List<User> users = Collections.emptyList();
+			if (termo == null || termo.trim().isEmpty()) {
+				users = User.findAll();
+			} else {
+				users = User.find("name like ?1 or email like ?1", "%"+termo+"%").fetch();
+			}
+			renderJSON(users);
+		}
 	
 	public static void edit(Long id) {
 		User user = User.findById(id);

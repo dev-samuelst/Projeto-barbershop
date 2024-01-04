@@ -1,4 +1,3 @@
-
 #{extends 'main.html' /}
 #{set title:'Listagem de Usuario' /}
 
@@ -26,28 +25,40 @@
 </div>
 <br/>
 
-<table class="table table-striped">
-  <thead class="bg-secondary-subtle">
+<table class="table">
+  <thead>
     <tr>
-      <th>#</th>
-      <th>Nome</th>
-      <th>Email</th>
-      <th>Ações</th>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Opções</th>
     </tr>
   </thead>
   <tbody>
-  	#{list items:users, as:'u'}
-  	
-		<tr>
-	      <th>${u.id}</th>
-	      <td>${u.name}</td>
-	      <td>${u.email}</td>
-	      <td>
-	      	<a href="@{Users.edit(u.id)}">Editar</a>
-	      	<a href="@{Users.del(u.id)}">Remover</a>
-	      </td>
-	    </tr>    
-	#{/list}
+    <tr id="ei">
+
+    </tr>
   </tbody>
 </table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("form").submit(function(e) {
+	 e.preventDefault();
+	 $.ajax({
+		 type: "GET", //INFORME O TIPO DA REQUISICAO
+		 url: "@{Users.listAjax}", //INFORME A URL DE DESTINO
+		 data: $(this).serialize(), //ENVIA DADOS DO FORMULARIO
+		 success: function(data) {
+			 $("tr").empty();
+			 $.each(data, function(i, item) {
+				 $("#ei").append("<td>" + item.name + " (" + item.email + ")" +
+				 " | <a href=/clientes/form?id="+ item.id +">Editar</a>" +
+				 " | <a href=/clientes/remover?id="+ item.id +">Remover</a></td>");
+			 });
+		 }
+	 });
+	});
+});
+</script>
 
