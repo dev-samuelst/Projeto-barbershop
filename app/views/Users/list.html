@@ -35,9 +35,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr id="ei">
-
-    </tr>
+   
   </tbody>
 </table>
 
@@ -50,11 +48,12 @@ $(document).ready(function() {
 		 url: "@{Users.listAjax}", //INFORME A URL DE DESTINO
 		 data: $(this).serialize(), //ENVIA DADOS DO FORMULARIO
 		 success: function(data) {
-			 $("tr").empty();
-			 $.each(data, function(i, item) {
-				 $("#ei").append("<td>" + item.name + " (" + item.email + ")" +
-				 " | <a href=/clientes/form?id="+ item.id +">Editar</a>" +
-				 " | <a href=/clientes/remover?id="+ item.id +">Remover</a></td>");
+			 $("tbody").empty();
+			 $.each(data, function(i, user) {
+				 $("tbody").append("<tr><td>" + user.id + "</td>" + "<td>" + user.name + 
+				 "</td>" + "<td>" + user.email + "</td> <td>" +
+		 "  <a href=/users/form?id="+ user.id +" class='btn btn-secondary'>Editar</a>" +
+		 "  <a href=/users/del?id="+ user.id + " class='btn btn-danger'>Remover</a></td></tr>");
 			 });
 		 }
 	 });
